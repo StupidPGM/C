@@ -1,24 +1,28 @@
 #include <stdio.h>
 
-void collision (int PlayerX,int PlayerY,int PlayerW,int PlayerH, int EnemyX, int EnemyY, int EnemyW, int EnemyH){
-	if(PlayerX < EnemyX + EnemyW && PlayerX + PlayerW > EnemyX && PlayerY < EnemyY + EnemyH && PlayerY + PlayerH > EnemyY){
+void collision (int player[],int enemy[]){
+	if(player[0] < enemy[0] + enemy[2] && player[0] + player[2] > enemy[0] && player[1] < enemy[1] + enemy[3] && player[1] + player[3] > enemy[1]){
 		printf("it collision\n");
 	}else{
 		printf("not collision\n");
+		
 	}
-}
-
 int main(){
-	int PlayerX, PlayerY, PlayerW = 50,PlayerH = 50;
-	int EnemyX, EnemyY, EnemyW = 50,EnemyH = 50;
-	printf("PX:");
-	scanf("%d", &PlayerX);
-	printf("PY:");
-	scanf("%d", &PlayerY);
-	printf("EX:");
-	scanf("%d", &EnemyX);
-	printf("EY:");
-	scanf("%d", &EnemyY);
-	collision (PlayerX,PlayerY,PlayerW,PlayerH,EnemyX,EnemyY,EnemyW,EnemyH);
+	int player[4] = {0,0,50,50};
+	int enemy[4] = {0,0,25,25};
+	
+	printf("PlayerX:");
+	scanf("%d", &player[0]);
+	printf("PlayerY:");
+	scanf("%d", &player[1]);
+	printf("EnemyX:");
+	scanf("%d", &enemy[0]);
+	printf("EnemyY:");
+	scanf("%d", &enemy[1]);
+
+	collision (player,enemy);
 	return 0;
 }
+
+
+			
