@@ -1,26 +1,44 @@
 #include <stdio.h>
 
-void collision (int player[],int enemy[]){
-	if(player[0] < enemy[0] + enemy[2] && player[0] + player[2] > enemy[0] && player[1] < enemy[1] + enemy[3] && player[1] + player[3] > enemy[1]){
+void collision (struct player,struct enemy){
+	if(player.x < enemy.x + enemy.width && player.x + player.width > enemy.x && player.y < enemy.y + enemy.height && player.y + player.height > enemy.y){
 		printf("it collision\n");
 	}else{
 		printf("not collision\n");
-		
 	}
-int main(){
-	int player[4] = {0,0,50,50};
-	int enemy[4] = {0,0,25,25};
-	
-	printf("PlayerX:");
-	scanf("%d", &player[0]);
-	printf("PlayerY:");
-	scanf("%d", &player[1]);
-	printf("EnemyX:");
-	scanf("%d", &enemy[0]);
-	printf("EnemyY:");
-	scanf("%d", &enemy[1]);
+struct playerbuild{
+	int x;
+	int y;
+	int width;
+	int height;
+}player;
+struct enemybuild{
+	int x;
+	int y;
+	int width;
+	int height;
+}enemy;
 
+int main(){
+	printf("PlayerX: ");
+	scanf("%d",player.x);
+	printf("PlayerY: ");
+	scanf("%d",player.y);
+	
+	player.width = 50;
+	player.height = 50;
+	
+	printf("EnemyX: ");
+	scanf("%d",enemy.x);
+	printf("EnemyX: ");
+	scanf("%d",enemy.y);
+	
+	enemy.width = 50;
+	enemy.height = 50;
+	
+	
 	collision (player,enemy);
+	
 	return 0;
 }
 
