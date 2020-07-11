@@ -5,7 +5,6 @@ void collision (int PlayerX,int PlayerY,int PlayerW,int PlayerH, int EnemyX, int
 		printf("it collision\n");
 	}else{
 		printf("not collision\n");
-		
 	}
 }
 
